@@ -1,121 +1,133 @@
 # Content Editing Guide: Secura Compliances Blog
 
-This guide explains how to add and edit blog posts for the Secura Compliances website.
+This guide explains how to add and edit blog posts for the Secura Compliances website using Markdown files.
 
-**Important Note:** Currently, blog posts are managed directly within the website's source code. This process requires familiarity with JavaScript arrays and objects. For a more user-friendly Markdown file-based system (as originally envisioned in the PRD), the blog functionality would need to be refactored.
+## Overview
 
-## Locating the Blog Post Data
+Blog posts are managed as individual Markdown (`.md`) files stored in the `content/blog/` directory within the project. Each file consists of two parts:
 
-Blog post data is stored as an array of JavaScript objects named `blogPosts`. This array is duplicated and needs to be updated in **two separate files**:
+1.  **YAML Frontmatter:** A section at the top of the file containing metadata for the post (like title, date, author, etc.).
+2.  **Markdown Content:** The main body of the blog post written in standard Markdown.
 
-1.  `app/blog/[slug]/page.tsx`
-2.  `app/blog/page.tsx`
+## Locating Blog Post Files
 
-You must ensure that any changes are identically made in both files to maintain consistency.
+All blog post Markdown files are located in the `content/blog/` directory in the root of the project.
 
-## Blog Post Structure
+## Blog Post File Naming
 
-Each blog post is an object within the `blogPosts` array with the following structure:
+Each blog post should be a new `.md` file in the `content/blog/` directory. The name of the file will determine its URL slug. For example:
 
-```javascript
-{
-  id: 'unique-slug-for-the-post', // Used in the URL, e.g., /blog/unique-slug-for-the-post
-  title: 'Full Title of the Blog Post',
-  excerpt: 'A short summary or introduction of the post (around 1-2 sentences). This is used for previews and SEO.',
-  content: `Multi-line string containing the main content of the blog post. See "Content Formatting" section below.`,
-  author: 'Author Name',
-  date: 'YYYY-MM-DD', // Publication date
-  readTime: 'X min read', // Estimated reading time
-  category: 'Category Name', // e.g., 'Legal & Compliance', 'Culture & Training'
-  image: 'URL_to_a_featured_image', // e.g., 'https://example.com/images/my-post-image.jpg'
-  tags: ['tag1', 'tag2', 'relevant-keyword'] // Array of strings for tags/keywords
-}
+*   `my-new-post.md` will be accessible at `/blog/my-new-post`
+*   `understanding-the-posh-act.md` will be accessible at `/blog/understanding-the-posh-act`
+
+**Naming Conventions:**
+*   Use lowercase letters.
+*   Separate words with hyphens (`-`).
+*   Keep filenames descriptive and concise.
+
+## Frontmatter Structure
+
+The frontmatter is a YAML block at the very beginning of your Markdown file, enclosed by triple-dashed lines (`---`).
+
+Here's an example of the required and recommended fields:
+
+```yaml
+---
+title: "Full Title of the Blog Post"
+excerpt: "A short summary or introduction (1-2 sentences). Used for blog listing previews and SEO meta descriptions."
+date: "YYYY-MM-DD" # Publication date, e.g., "2024-07-28"
+author: "Author Name"
+category: "Category Name" # e.g., "Legal & Compliance", "Workplace Culture"
+image: "/images/blog/your-post-image.jpg" # Path to the featured image (see "Adding Images" section)
+readTime: "X min read" # Estimated reading time, e.g., "7 min read"
+tags:
+  - "Relevant Tag 1"
+  - "Keyword 2"
+  - "POSH"
+# Optional fields for more specific SEO control (if not provided, they may be derived from title/excerpt)
+# ogTitle: "Specific Open Graph Title for this post"
+# ogDescription: "Specific Open Graph Description for this post"
+---
 ```
+
+**Field Explanations:**
+
+*   `title` (required): The main title of your blog post.
+*   `excerpt` (required): A brief summary of the post.
+*   `date` (required): The date the post is published. Use `YYYY-MM-DD` format. Posts are sorted by this date on the blog listing page.
+*   `author` (required): The name of the post's author.
+*   `category` (required): The primary category for the post.
+*   `image` (required): The path to the post's featured image. See the "Adding Images" section for details.
+*   `readTime` (required): An estimate of how long the post takes to read.
+*   `tags` (required): A list of relevant tags or keywords.
+*   `ogTitle` (optional): If you want a specific Open Graph title different from the main `title`.
+*   `ogDescription` (optional): If you want a specific Open Graph description different from the `excerpt`.
+
+## Writing Content in Markdown
+
+Below the frontmatter, write your blog post using standard Markdown syntax. The website uses a renderer that supports common Markdown features, including:
+
+*   **Headings:** `# Heading 1`, `## Heading 2`, `### Heading 3`, etc.
+*   **Paragraphs:** Just type your text. Separate paragraphs with a blank line.
+*   **Bold Text:** `**Bold Text**` or `__Bold Text__`
+*   **Italic Text:** `*Italic Text*` or `_Italic Text_`
+*   **Links:** `[Link Text](https://example.com)`
+*   **Lists:**
+    *   Unordered (bullet): `- Item 1`, `* Item 1`, `+ Item 1`
+    *   Ordered (numbered): `1. First Item`, `2. Second Item`
+*   **Blockquotes:** `> This is a blockquote.`
+*   **Inline Code:** `` `inline code snippet` ``
+*   **Code Blocks (Fenced):**
+    ```markdown
+    ```javascript
+    // This is a JavaScript code block
+    function hello() {
+      console.log("Hello, world!");
+    }
+    ```
+*   **Images:** `![Alt text for image](/images/blog/your-image-in-content.jpg)` (See "Adding Images")
+*   **Horizontal Rules:** `---` or `***`
+
+The styling for these Markdown elements is handled by the `@tailwindcss/typography` plugin and has been customized to match the website's design.
+
+## Adding Images
+
+1.  **Image Storage:** Place all blog post images in the `public/images/blog/` directory. If this directory doesn't exist, create it.
+2.  **Referencing Images:**
+    *   **Featured Image (in Frontmatter):** Use the path starting with `/images/blog/`. For example: `image: "/images/blog/my-featured-image.png"`
+    *   **Images within Content:** Use the same path structure. For example: `![Descriptive alt text](/images/blog/my-content-image.jpg)`
+
+Keep image file sizes optimized for the web to ensure fast page loads.
 
 ## Adding a New Blog Post
 
-1.  **Open both files:**
-    *   `app/blog/[slug]/page.tsx`
-    *   `app/blog/page.tsx`
-2.  **Navigate to the `blogPosts` array** in each file.
-3.  **Add a new JavaScript object** to the array, following the structure described above. Ensure the `id` is unique.
-    *Example:*
-    ```javascript
-    // ... existing posts
-    {
-      id: 'my-new-article',
-      title: 'My New Article Title',
-      excerpt: 'This is a brief overview of my new article.',
-      content: `## My First Heading
-    This is the first paragraph of content.
-
-    ### A Subheading
-    - This is a list item.
-    - Another list item.
-
-    This is more text after the list.`,
-      author: 'Your Name',
-      date: '2024-03-15',
-      readTime: '5 min read',
-      category: 'New Category',
-      image: 'https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&w=1200', // Replace with actual image URL
-      tags: ['new', 'article', 'testing']
-    },
-    // ... other existing posts if adding in the middle
-    ```
-4.  **Save both files.**
+1.  **Create a new `.md` file** in the `content/blog/` directory (e.g., `my-awesome-post.md`).
+2.  **Add the YAML frontmatter** at the top of the file, filling in all required fields.
+3.  **Write your blog post content** using Markdown below the frontmatter.
+4.  **Add any images** to `public/images/blog/` and reference them correctly.
+5.  **Commit and push** the new Markdown file (and any images) to the repository. The website should automatically pick up the new post after deployment.
 
 ## Editing an Existing Blog Post
 
-1.  **Open both files:**
-    *   `app/blog/[slug]/page.tsx`
-    *   `app/blog/page.tsx`
-2.  **Navigate to the `blogPosts` array** in each file.
-3.  **Find the JavaScript object** for the post you want to edit (you can search by `id` or `title`).
-4.  **Modify the desired fields** (e.g., `title`, `content`, `image`, etc.).
-5.  **Save both files.**
-
-## Content Formatting (Pseudo-Markdown)
-
-The `content` field uses a simplified, custom formatting approach. It's not full Markdown. Supported elements:
-
-*   **Paragraphs:** Separate paragraphs with a double newline (pressing Enter twice).
-*   **Headings:**
-    *   `## Heading Level 2`: Creates a large heading.
-    *   `### Heading Level 3`: Creates a medium heading.
-*   **Lists:** Create a bulleted list by starting each line with `- ` (a hyphen followed by a space). All list items must be in a contiguous block.
-
-*Example of `content` string:*
-```javascript
-`## Main Section Title
-This is the introductory paragraph for this section. It can span multiple lines if needed, but ensure it's part of the same backtick-enclosed string.
-
-This is another paragraph.
-
-### Subsection Details
-- First item in the list.
-- Second item in the list.
-- Third item, continuing the discussion.
-
-Another paragraph following the list, providing more details or concluding thoughts.`
-```
-
-**Unsupported Markdown:** Standard Markdown for bold (`**bold**` or `__bold__`), italics (`*italic*` or `_italic_`), links (`[text](url)`), inline code (`\`code\``), code blocks (triple backticks), blockquotes (`> quote`), and more complex elements are **not currently supported** by the `formatContent` function. To include these, the function in `app/blog/[slug]/page.tsx` would need to be updated, or a proper Markdown rendering library should be implemented.
+1.  **Locate the Markdown file** for the post you want to edit in the `content/blog/` directory.
+2.  **Open the file** in a text editor.
+3.  **Modify the frontmatter or Markdown content** as needed.
+4.  **Commit and push** your changes. The updates will appear on the website after deployment.
 
 ## SEO and Open Graph Metadata
 
-The following fields from the blog post object are used to generate metadata for SEO and social sharing (Open Graph/Twitter Cards):
+The following frontmatter fields are primarily used for SEO and social sharing:
 
-*   `title`: Used for the page title and `og:title`.
-*   `excerpt`: Used for the meta description, `og:description`.
-*   `tags`: Joined into a string for meta keywords.
+*   `title`: Used for the page `<title>` tag and `og:title`.
+*   `excerpt`: Used for the `meta name="description"` tag and `og:description`.
 *   `image`: Used for `og:image` and `twitter:image`.
-*   `author`: Used in `og:article:author`.
-*   `date`: Used in `og:article:published_time`.
+*   `tags`: Can be used to generate `meta name="keywords"`.
+*   `author`: Used for `article:author` Open Graph tag.
+*   `date`: Used for `article:published_time` Open Graph tag.
 
-Ensure these fields are filled accurately for each post.
+Ensure these are descriptive and accurate for best results. Using the optional `ogTitle` and `ogDescription` fields can provide more targeted text for social sharing.
 
 ---
 
-This documentation reflects the blog system as of 2024-07-26. If the blog system is updated to use external Markdown files, this guide will need to be revised.
+This guide reflects the Markdown-based blog system. If you have questions, refer to Markdown syntax guides or contact the development team.
 ```

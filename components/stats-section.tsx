@@ -29,7 +29,7 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="py-20 bg-gradient-to-r from-royal-plum via-sunset-coral to-champagne-gold relative overflow-hidden">
+    <section className="py-20 bg-deep-teal relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -79,7 +79,7 @@ export function StatsSection() {
             <p className="text-white/90 mb-6 max-w-2xl mx-auto">
               Let us help you achieve the same level of compliance and workplace safety excellence.
             </p>
-            <button className="bg-white text-royal-plum font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+            <button className="bg-white text-deep-teal font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg">
               Start Your Journey
             </button>
           </div>

@@ -13,6 +13,70 @@ const config: Config = {
         sans: ['var(--font-inter)'],
         serif: ['var(--font-playfair)'],
       },
+      typography: (theme) => ({
+        DEFAULT: { // This targets the base 'prose' class
+          css: {
+            color: theme('colors.charcoal-gray'), // Default text color
+            a: {
+              color: theme('colors.deep-teal'),
+              '&:hover': {
+                color: theme('colors.golden-ochre'),
+              },
+              textDecoration: 'none', // Optional: remove underline by default
+            },
+            h1: { color: theme('colors.charcoal-gray') },
+            h2: { color: theme('colors.charcoal-gray') },
+            h3: { color: theme('colors.charcoal-gray') },
+            h4: { color: theme('colors.charcoal-gray') },
+            strong: { color: theme('colors.charcoal-gray') }, // Or a slightly darker shade
+            blockquote: {
+              color: theme('colors.charcoal-gray'),
+              borderLeftColor: theme('colors.deep-teal'),
+            },
+            ul: {
+              li: {
+                '&::marker': { backgroundColor: theme('colors.deep-teal') }, // For bullets
+              },
+            },
+            ol: {
+              li: {
+                '&::marker': { color: theme('colors.deep-teal') }, // For numbers
+              },
+            },
+            // Add more overrides as needed for code blocks, etc.
+            // Example for code blocks (inline and block)
+            'code': {
+              color: theme('colors.burnt-sienna'),
+              backgroundColor: theme('colors.cream'), // A light background for code
+              padding: '0.2em 0.4em',
+              borderRadius: '0.25rem',
+            },
+            'code::before': { content: '""' }, // Remove default backticks for inline code
+            'code::after': { content: '""' },  // Remove default backticks for inline code
+            'pre': { // For fenced code blocks
+              backgroundColor: theme('colors.charcoal-gray'), // Dark background for code blocks
+              color: theme('colors.cream'),
+              padding: theme('spacing.4'),
+              borderRadius: theme('borderRadius.md'),
+            },
+            'pre code': { // Reset inline code styles within a pre block
+              backgroundColor: 'transparent',
+              color: 'inherit',
+              padding: '0',
+              borderRadius: '0',
+            },
+          },
+        },
+        // Optional: Define styles for prose-xl if needed, or let it inherit and scale
+        xl: {
+          css: {
+            // Larger font sizes are applied by default by prose-xl
+            // You can override specific xl styles here if necessary
+            // For example, if you want xl headings to be a different color
+            // h1: { color: theme('colors.anotherShade') },
+          }
+        }
+      }),
       colors: {
         'deep-teal': '#005058',
         'golden-ochre': '#C68E17',
@@ -58,7 +122,7 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, rgba(0, 80, 88, 0.9) 0%, rgba(198, 142, 23, 0.8) 50%, rgba(224, 122, 95, 0.7) 100%)',
+        'hero-gradient': 'linear-gradient(135deg, rgba(0, 80, 88, 0.95) 0%, rgba(106, 68, 11, 0.85) 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -86,7 +150,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwindcss-animate')
+  ],
 };
 
 export default config;
