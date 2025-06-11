@@ -32,19 +32,19 @@ const achievements = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-20 bg-gradient-to-b from-cream/20 to-white">
+    <section className="py-20 bg-gradient-to-b from-soft-blush/20 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div>
-            <span className="inline-block px-4 py-2 bg-burnt-sienna/10 text-burnt-sienna rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-sunset-coral/10 text-sunset-coral rounded-full text-sm font-medium mb-4">
               Why Choose Us
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal-gray mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-midnight mb-6">
               Your Trusted Partner in
               <span className="gradient-text"> Workplace Safety</span>
             </h2>
-            <p className="text-lg text-light-steel-blue mb-8 leading-relaxed">
+            <p className="text-lg text-warm-gray mb-8 leading-relaxed">
               With years of experience and a proven track record, we're committed to helping organizations 
               create safer, more inclusive workplaces through comprehensive POSH solutions.
             </p>
@@ -55,12 +55,12 @@ export function WhyChooseUs() {
                 const IconComponent = reason.icon;
                 return (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-deep-teal rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-royal-plum to-sunset-coral rounded-xl flex items-center justify-center flex-shrink-0">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-charcoal-gray mb-2">{reason.title}</h3>
-                      <p className="text-sm text-light-steel-blue leading-relaxed">{reason.description}</p>
+                      <h3 className="font-semibold text-midnight mb-2">{reason.title}</h3>
+                      <p className="text-sm text-warm-gray leading-relaxed">{reason.description}</p>
                     </div>
                   </div>
                 );
@@ -73,44 +73,44 @@ export function WhyChooseUs() {
             {/* Main Card */}
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
               <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-golden-ochre to-burnt-sienna rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-champagne-gold to-sunset-coral rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-charcoal-gray mb-2">Proven Results</h3>
-                <p className="text-light-steel-blue">Numbers that speak for themselves</p>
+                <h3 className="text-2xl font-bold text-midnight mb-2">Proven Results</h3>
+                <p className="text-warm-gray">Numbers that speak for themselves</p>
               </div>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-6">
                 {achievements.map((achievement, index) => (
-                  <div key={index} className="text-center p-4 bg-cream/30 rounded-xl"> {/* Updated bg-soft-blush/30 to bg-cream/30 or similar */}
+                  <div key={index} className="text-center p-4 bg-soft-blush/30 rounded-xl">
                     <div className="text-2xl mb-2">{achievement.icon}</div>
                     <div className="text-2xl font-bold gradient-text mb-1">{achievement.number}</div>
-                    <div className="text-sm text-light-steel-blue">{achievement.label}</div>
+                    <div className="text-sm text-warm-gray">{achievement.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Testimonial Quote */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-deep-teal/5 to-golden-ochre/5 rounded-xl border-l-4 border-deep-teal">
-                <p className="text-charcoal-gray italic mb-3">
+              <div className="mt-8 p-6 bg-gradient-to-r from-royal-plum/5 to-sunset-coral/5 rounded-xl border-l-4 border-royal-plum">
+                <p className="text-midnight italic mb-3">
                   "Secura Compliances transformed our workplace culture. Their expertise and personalized approach made compliance seamless."
                 </p>
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-deep-teal to-golden-ochre rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-royal-plum to-sunset-coral rounded-full flex items-center justify-center">
                     <span className="text-white font-semibold text-sm">RK</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-charcoal-gray text-sm">Rajesh Kumar</div>
-                    <div className="text-light-steel-blue text-xs">HR Director, Tech Corp</div>
+                    <div className="font-semibold text-midnight text-sm">Rajesh Kumar</div>
+                    <div className="text-warm-gray text-xs">HR Director, Tech Corp</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-golden-ochre/20 rounded-full animate-float" />
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-burnt-sienna/20 rounded-full animate-float" style={{ animationDelay: '3s' }} />
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-champagne-gold/20 rounded-full animate-float" />
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-sunset-coral/20 rounded-full animate-float" style={{ animationDelay: '3s' }} />
           </div>
         </div>
       </div>
