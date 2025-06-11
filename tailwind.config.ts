@@ -14,13 +14,13 @@ const config: Config = {
         serif: ['var(--font-playfair)'],
       },
       colors: {
-        'royal-plum': '#6D2973',
-        'sunset-coral': '#F26457',
-        'champagne-gold': '#D4AF7F',
-        'ivory': '#FAF9F6',
-        'soft-blush': '#F9D6D6',
-        'warm-gray': '#A8A8A8',
-        'midnight': '#333333',
+        'deep-teal': '#005058',
+        'golden-ochre': '#C68E17',
+        'cream': '#FFF7E8',
+        'burnt-sienna': '#E07A5F',
+        'light-steel-blue': '#B0C4DE',
+        'charcoal-gray': '#36454F',
+        'off-white': '#F8F8F8',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -58,7 +58,7 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, rgba(109, 41, 115, 0.9) 0%, rgba(242, 100, 87, 0.8) 50%, rgba(212, 175, 127, 0.7) 100%)',
+        'hero-gradient': 'linear-gradient(135deg, rgba(0, 80, 88, 0.9) 0%, rgba(198, 142, 23, 0.8) 50%, rgba(224, 122, 95, 0.7) 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',

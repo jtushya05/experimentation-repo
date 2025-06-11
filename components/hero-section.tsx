@@ -14,7 +14,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-royal-plum/90 via-sunset-coral/80 to-champagne-gold/70" />
+      <div className="absolute inset-0 bg-hero-gradient" />
       
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -37,7 +37,7 @@ export function HeroSection() {
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Creating
-              <span className="block bg-gradient-to-r from-champagne-gold to-white bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-golden-ochre to-cream bg-clip-text text-transparent">
                 Safe Workplaces
               </span>
               for Everyone
@@ -57,7 +57,7 @@ export function HeroSection() {
                 '100% Legal Compliance'
               ].map((benefit, index) => (
                 <div key={index} className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-champagne-gold flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-golden-ochre flex-shrink-0" />
                   <span className="text-white/90">{benefit}</span>
                 </div>
               ))}
@@ -83,8 +83,8 @@ export function HeroSection() {
               {/* Main Card */}
               <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20">
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-champagne-gold rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Shield className="w-8 h-8 text-midnight" />
+                  <div className="w-16 h-16 bg-golden-ochre rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-8 h-8 text-cream" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">Compliance Made Simple</h3>
                   <p className="text-white/80">End-to-end POSH solutions</p>
@@ -93,23 +93,23 @@ export function HeroSection() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-champagne-gold">500+</div>
+                    <div className="text-2xl font-bold text-golden-ochre">500+</div>
                     <div className="text-white/80 text-sm">Companies Served</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-champagne-gold">99%</div>
+                    <div className="text-2xl font-bold text-golden-ochre">99%</div>
                     <div className="text-white/80 text-sm">Compliance Rate</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-champagne-gold">5+</div>
+                    <div className="text-2xl font-bold text-golden-ochre">5+</div>
                     <div className="text-white/80 text-sm">Years Experience</div>
                   </div>
                 </div>
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-sunset-coral/20 rounded-full animate-float" />
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-champagne-gold/20 rounded-full animate-float" style={{ animationDelay: '2s' }} />
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-burnt-sienna/20 rounded-full animate-float" />
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-golden-ochre/20 rounded-full animate-float" style={{ animationDelay: '2s' }} />
             </div>
           </div>
         </div>

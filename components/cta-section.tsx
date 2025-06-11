@@ -3,7 +3,7 @@ import { ArrowRight, Phone, Mail, Calendar } from 'lucide-react';
 
 export function CtaSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-midnight via-royal-plum to-sunset-coral relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-charcoal-gray via-deep-teal to-burnt-sienna relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -17,7 +17,7 @@ export function CtaSection() {
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Create a
-              <span className="block text-champagne-gold">Safer Workplace?</span>
+              <span className="block text-golden-ochre">Safer Workplace?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
               Join hundreds of companies who trust Secura Compliances for their POSH consulting needs. 
@@ -25,11 +25,11 @@ export function CtaSection() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link href="/contact" className="bg-champagne-gold text-midnight font-bold py-4 px-8 rounded-full hover:bg-champagne-gold/90 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl inline-flex items-center justify-center">
+              <Link href="/contact" className="bg-golden-ochre text-cream font-bold py-4 px-8 rounded-full hover:bg-golden-ochre/90 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl inline-flex items-center justify-center">
                 Get Free Consultation
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/services" className="border-2 border-white text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-royal-plum transition-all duration-300 transform hover:-translate-y-1">
+              <Link href="/services" className="border-2 border-white text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-deep-teal transition-all duration-300 transform hover:-translate-y-1">
                 Explore Services
               </Link>
             </div>
@@ -39,36 +39,36 @@ export function CtaSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {/* Phone */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="w-12 h-12 bg-champagne-gold rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-6 h-6 text-midnight" />
+              <div className="w-12 h-12 bg-golden-ochre rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-6 h-6 text-cream" />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Call Us Today</h3>
               <p className="text-white/80 text-sm mb-4">Speak with our experts</p>
-              <a href="tel:+915551234567" className="text-champagne-gold font-semibold hover:text-white transition-colors duration-300">
+              <a href="tel:+915551234567" className="text-golden-ochre font-semibold hover:text-white transition-colors duration-300">
                 +91 (555) 123-4567
               </a>
             </div>
 
             {/* Email */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="w-12 h-12 bg-champagne-gold rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-6 h-6 text-midnight" />
+              <div className="w-12 h-12 bg-golden-ochre rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-6 h-6 text-cream" />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
               <p className="text-white/80 text-sm mb-4">Get detailed information</p>
-              <a href="mailto:hello@securacompliances.com" className="text-champagne-gold font-semibold hover:text-white transition-colors duration-300">
+              <a href="mailto:hello@securacompliances.com" className="text-golden-ochre font-semibold hover:text-white transition-colors duration-300">
                 hello@securacompliances.com
               </a>
             </div>
 
             {/* Schedule */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="w-12 h-12 bg-champagne-gold rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Calendar className="w-6 h-6 text-midnight" />
+              <div className="w-12 h-12 bg-golden-ochre rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Calendar className="w-6 h-6 text-cream" />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Schedule Meeting</h3>
               <p className="text-white/80 text-sm mb-4">Book a consultation</p>
-              <Link href="/contact" className="text-champagne-gold font-semibold hover:text-white transition-colors duration-300">
+              <Link href="/contact" className="text-golden-ochre font-semibold hover:text-white transition-colors duration-300">
                 Book Now
               </Link>
             </div>
