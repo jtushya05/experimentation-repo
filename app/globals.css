@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  
+  /* Brand Colors */
+  --royal-plum: #6D2973;
+  --sunset-coral: #F26457;
+  --champagne-gold: #D4AF7F;
+  --ivory-white: #FAF9F6;
+  --soft-blush: #F9D6D6;
+  --warm-gray: #A8A8A8;
+  --midnight-charcoal: #333333;
+  
+  /* Design System */
+  --foreground-rgb: 51, 51, 51;
+  --background-start-rgb: 250, 249, 246;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 290 55% 32%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 30 25% 70%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 30 20% 95%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 5 80% 65%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 15% 89%;
+    --input: 30 15% 89%;
+    --ring: 290 55% 32%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-ivory via-white to-soft-blush/30 text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair);
+    @apply text-midnight font-medium;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-royal-plum via-sunset-coral to-champagne-gold bg-clip-text text-transparent;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, 
+      rgba(109, 41, 115, 0.9) 0%, 
+      rgba(242, 100, 87, 0.8) 50%, 
+      rgba(212, 175, 127, 0.7) 100%);
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-royal-plum to-sunset-coral text-white font-semibold py-3 px-8 rounded-full 
+           shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300
+           hover:from-sunset-coral hover:to-royal-plum;
+  }
+  
+  .btn-secondary {
+    @apply bg-champagne-gold text-midnight font-semibold py-3 px-8 rounded-full 
+           shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300
+           hover:bg-champagne-gold/90;
+  }
+}
+
+/* Custom utility classes */
+.text-royal-plum { color: var(--royal-plum); }
+.text-sunset-coral { color: var(--sunset-coral); }
+.text-champagne-gold { color: var(--champagne-gold); }
+.text-ivory { color: var(--ivory-white); }
+.text-soft-blush { color: var(--soft-blush); }
+.text-warm-gray { color: var(--warm-gray); }
+.text-midnight { color: var(--midnight-charcoal); }
+
+.bg-royal-plum { background-color: var(--royal-plum); }
+.bg-sunset-coral { background-color: var(--sunset-coral); }
+.bg-champagne-gold { background-color: var(--champagne-gold); }
+.bg-ivory { background-color: var(--ivory-white); }
+.bg-soft-blush { background-color: var(--soft-blush); }
+.bg-warm-gray { background-color: var(--warm-gray); }
+.bg-midnight { background-color: var(--midnight-charcoal); }
+
+.border-royal-plum { border-color: var(--royal-plum); }
+.border-sunset-coral { border-color: var(--sunset-coral); }
+.border-champagne-gold { border-color: var(--champagne-gold); }
