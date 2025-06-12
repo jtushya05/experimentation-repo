@@ -361,8 +361,8 @@ export default function BlogPage() {
               <button
                 key={index}
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                  index === 0 
-                    ? 'bg-royal-plum text-white shadow-lg' 
+                  index === 0
+                    ? 'bg-royal-plum text-white shadow-lg'
                     : 'bg-white text-warm-gray hover:bg-soft-blush/50 border border-gray-200'
                 }`}
               >
@@ -376,8 +376,8 @@ export default function BlogPage() {
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div className="h-64 lg:h-auto">
-                  <img 
-                    src={blogPosts[0].image} 
+                  <img
+                    src={blogPosts[0].image}
                     alt={blogPosts[0].title}
                     className="w-full h-full object-cover"
                   />
@@ -405,10 +405,10 @@ export default function BlogPage() {
                       </div>
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>{new Date(blogPosts[0].date).toLocaleDateString('en-US', { 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
+                        <span>{new Date(blogPosts[0].date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
                         })}</span>
                       </div>
                       <div className="flex items-center space-x-2">
@@ -416,7 +416,7 @@ export default function BlogPage() {
                         <span>{blogPosts[0].readTime}</span>
                       </div>
                     </div>
-                    <Link 
+                    <Link
                       href={`/blog/${blogPosts[0].id}`}
                       className="inline-flex items-center text-royal-plum hover:text-sunset-coral font-semibold transition-colors duration-300"
                     >
