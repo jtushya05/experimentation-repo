@@ -12,7 +12,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden homepage-hero-area"> {/* Added homepage-hero-area */}
       {/* Background with New Gradient Overlay from tailwind.config.ts */}
       <div className="absolute inset-0 bg-hero-gradient" />
       

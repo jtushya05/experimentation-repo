@@ -127,3 +127,14 @@
 .border-off-white { border-color: var(--off-white); }
 
 /* Ensure no old color utility classes (e.g., .text-royal-plum) remain */
+
+/* Added for Homepage Hero Cursor */
+@layer utilities {
+  .homepage-hero-area {
+    cursor: default; /* Ensures the standard arrow cursor */
+  }
+  /* Ensure interactive elements within it still get their specific cursors */
+  .homepage-hero-area a, .homepage-hero-area button {
+    cursor: pointer; /* Explicitly keep pointer for interactive elements */
+  }
+}
