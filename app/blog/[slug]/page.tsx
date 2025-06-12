@@ -1,6 +1,5 @@
 'use client';
 
-import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, User, Clock, ArrowLeft, Linkedin, Twitter, Facebook } from 'lucide-react';
@@ -13,44 +12,7 @@ interface BlogPostPageProps {
   };
 }
 
-// Metadata generation should ideally be done in a way that doesn't require 'use client' for the whole page if possible.
-// For now, we keep it as it might have been structured, but this is a common point of refactoring with App Router.
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  try {
-    const post = await getPostData(params.slug);
-    if (!post) {
-      return {
-        title: 'Post Not Found - Secura Compliances',
-      };
-    }
-
-    return {
-      title: `${post.title} - Secura Compliances Blog`,
-      description: post.excerpt,
-      keywords: post.tags.join(', '),
-      openGraph: {
-        title: post.title,
-        description: post.excerpt,
-        type: 'article',
-        publishedTime: post.date,
-        authors: [post.author],
-        images: [post.image],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: post.title,
-        description: post.excerpt,
-        images: [post.image],
-      },
-    };
-  } catch (error) {
-    console.error(`Error generating metadata for slug ${params.slug}:`, error);
-    return {
-      title: 'Error - Secura Compliances Blog',
-      description: 'There was an error loading this blog post.',
-    };
-  }
-}
+// generateMetadata function has been removed from here and moved to layout.tsx
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   let post: PostData; // Use PostData type
