@@ -4,18 +4,13 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, User, Clock, ArrowLeft, Linkedin, Twitter, Facebook } from 'lucide-react';
-import { getPostData, getAllPostIds, PostData } from '../../../lib/blog'; // Ensure PostData is imported if not already
+import { getPostData, PostData } from '../../../lib/blog'; // Removed getAllPostIds
 import ReactMarkdown from 'react-markdown';
 
 interface BlogPostPageProps {
   params: {
     slug: string;
   };
-}
-
-export async function generateStaticParams() { // generateStaticParams should not be in 'use client' components, but this structure is from existing file
-  const paths = getAllPostIds();
-  return paths;
 }
 
 // Metadata generation should ideally be done in a way that doesn't require 'use client' for the whole page if possible.

@@ -61,8 +61,7 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        // Updated hero-gradient from Turn 93 (visual overhaul)
-        'hero-gradient': 'linear-gradient(135deg, rgba(0, 80, 88, 0.95) 0%, rgba(106, 68, 11, 0.85) 100%)',
+        'hero-gradient': 'linear-gradient(135deg, rgba(0, 80, 88, 0.85) 0%, rgba(198, 142, 23, 0.7) 60%, rgba(255, 247, 232, 0.5) 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',

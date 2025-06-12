@@ -38,12 +38,12 @@ export function Navigation() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="p-2 bg-gradient-to-br from-deep-teal to-golden-ochre rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300">
-              <Shield className="w-6 h-6 text-cream" /> {/* Updated icon color */}
+            <div className="p-2 bg-deep-teal rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300"> {/* Solid Deep Teal background */}
+              <Shield className="w-6 h-6 text-cream" />
             </div>
             <div>
-              <span className="text-xl font-bold gradient-text">Secura</span> {/* Uses new .gradient-text from globals.css */}
-              <span className="text-xl font-bold text-charcoal-gray ml-1">Compliances</span> {/* Updated text color */}
+              <span className="text-xl font-bold text-golden-ochre">Secura</span> {/* Solid Golden Ochre text */}
+              <span className="text-xl font-bold text-charcoal-gray ml-1">Compliances</span>
             </div>
           </Link>
 
