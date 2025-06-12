@@ -2,74 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+/* :root should be at the top level, not inside @layer base for initial definitions */
 :root {
   --font-inter: 'Inter', sans-serif;
   --font-playfair: 'Playfair Display', serif;
 
-  /* Brand Colors */
-  --royal-plum: #6D2973;
-  --sunset-coral: #F26457;
-  --champagne-gold: #D4AF7F;
-  --ivory-white: #FAF9F6;
-  --soft-blush: #F9D6D6;
-  --warm-gray: #A8A8A8;
-  --midnight-charcoal: #333333;
+  /* New Brand Colors (HEX) */
+  --deep-teal: #005058;
+  --golden-ochre: #C68E17;
+  --cream: #FFF7E8;
+  --burnt-sienna: #E07A5F;
+  --burnt-sienna-hover: rgba(224, 122, 95, 0.9); /* For .btn-secondary hover */
+  --light-steel-blue: #B0C4DE;
+  --charcoal-gray: #36454F;
+  --off-white: #F8F8F8;
 
-  /* Design System */
-  --foreground-rgb: 51, 51, 51;
-  --background-start-rgb: 250, 249, 246;
-  --background-end-rgb: 255, 255, 255;
+  /* RGB versions for components that might need it (e.g. old gradient fallbacks, though not heavily used now) */
+  --foreground-rgb: 54, 69, 79; /* Charcoal Gray #36454F */
+  --background-start-rgb: 255, 247, 232; /* Cream #FFF7E8 */
+  --background-end-rgb: 248, 248, 248; /* Off-White #F8F8F8 - Or a lightened Light Steel Blue for gradient */
 }
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 20%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
-    --primary: 290 55% 32%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 30 25% 70%;
-    --secondary-foreground: 0 0% 20%;
-    --muted: 30 20% 95%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 5 80% 65%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 30 15% 89%;
-    --input: 30 15% 89%;
-    --ring: 290 55% 32%;
+    /* HSL Mapped Theme Colors - These should correspond to the new palette */
+    /* Verify HSL values with a converter if unsure */
+    --background: 40 100% 95%;    /* Cream #FFF7E8 */
+    --foreground: 204 19% 26%;    /* Charcoal Gray #36454F */
+
+    --card: 0 0% 97%;             /* Off-White #F8F8F8 */
+    --card-foreground: 204 19% 26%; /* Charcoal Gray */
+
+    --popover: 0 0% 97%;          /* Off-White */
+    --popover-foreground: 204 19% 26%; /* Charcoal Gray */
+
+    --primary: 187 100% 17%;      /* Deep Teal #005058 */
+    --primary-foreground: 40 100% 95%; /* Cream #FFF7E8 */
+
+    --secondary: 41 79% 43%;     /* Golden Ochre #C68E17 */
+    --secondary-foreground: 204 19% 26%; /* Charcoal Gray (for text on Golden Ochre) */
+
+    --muted: 210 40% 90%;        /* Lighter Light Steel Blue #B0C4DE -> ~hsl(210, 30%, 90%) or hsl(210, 40%, 90%) */
+    --muted-foreground: 202 15% 45%; /* Slightly lighter/muted Charcoal Gray */
+
+    --accent: 13 67% 63%;         /* Burnt Sienna #E07A5F */
+    --accent-foreground: 40 100% 95%;   /* Cream */
+
+    --destructive: 0 70% 50%;      /* A suitable red, or use Burnt Sienna if it fits: 13 67% 55% */
+    --destructive-foreground: 0 0% 98%; /* White/Cream */
+
+    --border: 210 30% 85%;        /* Subtle Light Steel Blue for borders */
+    --input: 210 30% 88%;         /* Slightly lighter for input backgrounds if needed, or same as border */
+    --ring: 41 79% 43%;           /* Golden Ochre (for focus rings) */
+
     --radius: 0.75rem;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
   
   body {
-    @apply bg-gradient-to-br from-ivory via-white to-soft-blush/30 text-foreground;
+    /* Gradient using new CSS variables, ensuring correct RGBA for the transparent part */
+    background: linear-gradient(to bottom right, var(--cream), var(--off-white), rgba(176, 196, 222, 0.3)); /* 176,196,222 is #B0C4DE (Light Steel Blue) */
+    @apply text-[hsl(var(--foreground))]; /* Use HSL foreground */
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-playfair);
-    @apply text-midnight font-medium;
+    @apply text-[var(--charcoal-gray)] font-medium;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-royal-plum via-sunset-coral to-champagne-gold bg-clip-text text-transparent;
-  }
-  
-  .hero-gradient {
-    background: linear-gradient(135deg,
-      rgba(109, 41, 115, 0.9) 0%,
-      rgba(242, 100, 87, 0.8) 50%,
-      rgba(212, 175, 127, 0.7) 100%);
+    @apply bg-gradient-to-r from-[var(--deep-teal)] via-[var(--golden-ochre)] to-[var(--burnt-sienna)] bg-clip-text text-transparent;
   }
   
   .card-hover {
@@ -77,35 +83,47 @@
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-royal-plum to-sunset-coral text-white font-semibold py-3 px-8 rounded-full
+    @apply bg-gradient-to-r from-[var(--deep-teal)] to-[var(--golden-ochre)] text-[var(--cream)] font-semibold py-3 px-8 rounded-full
            shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300
-           hover:from-sunset-coral hover:to-royal-plum;
+           hover:from-[var(--golden-ochre)] hover:to-[var(--deep-teal)];
   }
   
   .btn-secondary {
-    @apply bg-champagne-gold text-midnight font-semibold py-3 px-8 rounded-full
+    @apply bg-[var(--burnt-sienna)] text-[var(--cream)] font-semibold py-3 px-8 rounded-full
            shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300
-           hover:bg-champagne-gold/90;
+           hover:bg-[var(--burnt-sienna-hover)]; /* Corrected hover state */
   }
 }
 
-/* Custom utility classes */
-.text-royal-plum { color: var(--royal-plum); }
-.text-sunset-coral { color: var(--sunset-coral); }
-.text-champagne-gold { color: var(--champagne-gold); }
-.text-ivory { color: var(--ivory-white); }
-.text-soft-blush { color: var(--soft-blush); }
-.text-warm-gray { color: var(--warm-gray); }
-.text-midnight { color: var(--midnight-charcoal); }
+/* Custom utility classes for new palette (ensure these don't conflict with Tailwind's own if not needed) */
+/* Generally, prefer using Tailwind's direct utilities like text-deep-teal, bg-golden-ochre if they are defined in tailwind.config.ts */
+/* These are kept if direct CSS variable usage is preferred in some components for overrides or specific cases */
+.text-deep-teal { color: var(--deep-teal); }
+.bg-deep-teal { background-color: var(--deep-teal); }
+.border-deep-teal { border-color: var(--deep-teal); }
 
-.bg-royal-plum { background-color: var(--royal-plum); }
-.bg-sunset-coral { background-color: var(--sunset-coral); }
-.bg-champagne-gold { background-color: var(--champagne-gold); }
-.bg-ivory { background-color: var(--ivory-white); }
-.bg-soft-blush { background-color: var(--soft-blush); }
-.bg-warm-gray { background-color: var(--warm-gray); }
-.bg-midnight { background-color: var(--midnight-charcoal); }
+.text-golden-ochre { color: var(--golden-ochre); }
+.bg-golden-ochre { background-color: var(--golden-ochre); }
+.border-golden-ochre { border-color: var(--golden-ochre); }
 
-.border-royal-plum { border-color: var(--royal-plum); }
-.border-sunset-coral { border-color: var(--sunset-coral); }
-.border-champagne-gold { border-color: var(--champagne-gold); }
+.text-cream { color: var(--cream); }
+.bg-cream { background-color: var(--cream); }
+.border-cream { border-color: var(--cream); }
+
+.text-burnt-sienna { color: var(--burnt-sienna); }
+.bg-burnt-sienna { background-color: var(--burnt-sienna); }
+.border-burnt-sienna { border-color: var(--burnt-sienna); }
+
+.text-light-steel-blue { color: var(--light-steel-blue); }
+.bg-light-steel-blue { background-color: var(--light-steel-blue); }
+.border-light-steel-blue { border-color: var(--light-steel-blue); }
+
+.text-charcoal-gray { color: var(--charcoal-gray); }
+.bg-charcoal-gray { background-color: var(--charcoal-gray); }
+.border-charcoal-gray { border-color: var(--charcoal-gray); }
+
+.text-off-white { color: var(--off-white); }
+.bg-off-white { background-color: var(--off-white); }
+.border-off-white { border-color: var(--off-white); }
+
+/* Ensure no old color utility classes (e.g., .text-royal-plum) remain */
